@@ -1,0 +1,20 @@
+MDBoxLayout:
+    orientation: 'vertical'
+
+    MDScreen:
+
+        MDLabel:
+            id: my_label
+            text: "Some Stuff"
+            font_size: 32
+            halign: "center"
+
+        MDFloatingActionButtonSpeedDial:
+            data: app.data
+            root_button_anim: True
+
+            callback: app.callback
+
+            # open or close
+            on_open: app.open()
+            on_close: app.close()

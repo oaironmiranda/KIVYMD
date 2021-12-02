@@ -1,0 +1,61 @@
+<MySwiper@MDSwiperItem>
+    
+    #FitImage:
+    #    source: "source: "CHAT/01.png"
+    #    radius: [20,]
+
+MDScreen:
+    
+    MDToolbar:
+        id: toolbar
+        title: "Our Swiper App"
+        elevation: 10
+        pos_hint: {"top": 1}
+
+    MDSwiper:
+        id: swiper
+        size_hint_y: None
+        height: root.height - toolbar.height - dp(40)
+        y: root.height - self.height - toolbar.height - dp(20)
+
+        on_swipe_left: app.on_swipe_left()
+        on_swipe_right: app.on_swipe_right()
+
+
+        MySwiper:
+            FitImage:
+                source: "CHAT/01.png"
+                radius: [20,]
+   
+        MySwiper:
+            FitImage:
+                source: "CHAT/02.png"
+                radius: [20,]
+        
+        MySwiper:
+            FitImage:
+                source: "CHAT/03.png"
+                radius: [20,]
+        
+        MySwiper:
+            FitImage:
+                source: "CHAT/04.png"
+                radius: [20,]
+
+        MySwiper:
+            FitImage:
+                source: "CHAT/05.png"
+                radius: [20,]
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        MDRaisedButton:
+            text: "Previous"
+            on_release: if swiper.get_current_index() > 0: swiper.set_current(swiper.get_current_index()-1)
+
+        MDRaisedButton:
+            text: "Next"
+            on_release: if swiper.get_current_index() < len(swiper.get_items())-1: swiper.set_current(swiper.get_current_index()+1)
+
+            #len(swiper.get_items())
